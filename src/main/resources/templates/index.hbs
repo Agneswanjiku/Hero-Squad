@@ -1,45 +1,8 @@
-{{#partial "content"}}
-    <div class="container text-center text-white">
-        <div class="page-header">
-            <h1 class="text-center">Welcome to hero squad!! </h1>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6 pt-5">
-                <h2>Current Squads:</h2>
-                {{#if squads}}
-                    {{#each squads}}
-
-
-                        <p><a href="/squads/{{id}}"> <button type="submit" class="btn btn-success"> Squad details...</button></a></p>
-
-                    {{/each}}
-                {{else}}
-                    <p>No Squads!</p>
-                {{/if}}
-                <p><a href="/squads/new"> <button type="submit" class="btn btn-success"> Add Squad...</button></a></p>
-
-            </div>
-
-            <div class="col-md-6 pt-5">
-                <h2>Current heroes:</h2>
-
-                {{#if heroes}}
-                    {{#each heroes}}
-                        <p>Hero:</p>
-                        <p><a href="/heroes/{{id}}"> <button type="submit" class="btn btn-success"> Hero details...</button></a></p>
-
-                    {{/each}}
-                {{else}}
-                    <p>No heroes added!</p>
-
-                {{/if}}
-                <p><a href="/heroes/new"> <button type="submit" class="btn btn-success"> Add Hero...</button></a></p>
-
-
-            </div>
-        </div>
-    </div>
-{{/partial}}
-
-{{> layout.hbs}}
+<h1> HEROES ASSEMBLE</h1>
+<div class="jumbotron">
+    <h2 class="display-3">About</h2>
+    <p class="lead">The Hero Squad App allows you to to recruit well-balanced team of superheroes.</p>
+    <br>
+    <p><a href="/squads" class="btn btn-lg btn-warning">View Squad List</a></p>
+    <p><a href="/squads/new" class="btn btn-lg btn-success">Add a New Squad</a></p>
+</div>
