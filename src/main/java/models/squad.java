@@ -1,15 +1,18 @@
-import java.util.List;
-import java.util.ArrayList;
+package models;
 
-public class Squad {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+public class squad<Hero> {
     private String mName;
     private int mSize;
     private String mCause;
-    private static List<Squad> instances = new ArrayList<Squad>();
+    private static List<squad> instances = new ArrayList<squad>();
     private int mId;
     private List<Hero> mHeroes;
 
-    public Squad(String name, int size, String cause) {
+    public squad(String name, int size, String cause) {
         mName = name;
         mSize = size;
         mCause = cause;
@@ -30,7 +33,7 @@ public class Squad {
         return mCause;
     }
 
-    public static List<Squad> all() {
+    public static List<squad> all() {
         return instances;
     }
 
@@ -42,8 +45,8 @@ public class Squad {
         return mId;
     }
 
-    public static Squad find(int id) {
-        return instances.get(id-1);
+    public static squad find(int id) {
+        return instances.get(id - 1);
     }
 
     public List<Hero> getHeroes() {
@@ -54,16 +57,15 @@ public class Squad {
         mHeroes.add(hero);
     }
 
-    public static boolean heroAlreadyExists(Hero newHero) {
+    public boolean heroAlreadyExists(Hero newHero) {
         boolean exists = false;
-        for(Squad squad: instances){
-            for(Hero hero: squad.getHeroes()){
-                if (hero.getName().equals(newHero.getName())) {
+        for (squad squad : instances) {
+            for (Object hero : squad.getHeroes()) {
+                if (Objects.equals(hero.equals(hero), newHero.equals(hero))) {
                     exists = true;
                 }
             }
         }
         return exists;
     }
-
 }

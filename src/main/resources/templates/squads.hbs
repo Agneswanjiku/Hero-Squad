@@ -1,0 +1,20 @@
+</section class="wrapper">
+<div class="view" style="background-image: url('https://images8.alphacoders.com/815/815404.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+    <div class="jumbotron text-center">
+        <h1 class="h1-reponsive text-info" ><strong>All Squads <i class="fas fa-id-card"></strong></i></h1>
+        <a href="/squads/new" class="btn btn-outline-white ">Add New Squad  <i class="fas fa-user-plus animate rotateIn infinite"></i></a>
+        <br>
+
+        <div class="list-group text-white overflow-auto">
+            #foreach ($models.squad in $squads)
+            <a href="/squads/$models.squad.getId()" class="list-group-item list-group-item-action flex-column align-items-start  stylish-color-dark text-white overflow-auto">
+                <div class="d-flex w-75 justify-content-between overflow-auto">
+                    <h4 class="list-group-item-heading text-info">$models.squad.getName() <span class="badge">$models.squad.getHeroes().size()</span></h4>
+                    <span >$models.squad.getSize() max number of heroes</pan>
+                </div>
+                <p class="mb-1">$models.squad.getCause()</p>
+            </a>
+            #end
+        </div>
+
+        </section>

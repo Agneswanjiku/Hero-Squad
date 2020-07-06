@@ -1,0 +1,20 @@
+<div class="view" style="background-image: url('https://wallpapercave.com/wp/rSSUY81.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+    <div class="jumbotron text-center">
+        #if ($heroExists)
+        <h1 class="h2-reponsive text-info animated wobble infinite">Failed!</h1>
+        <br>
+        <h3 class="h2-reponsive text-white">Your hero could not be saved.</h3> $heroExists.
+        #else
+        #if($sizeMet)
+        <h1 class="h2-reponsive text-info animated wobble infinite">Failed!</h1>
+        <br>
+        <h3 class="h2-reponsive text-white">Your hero could not be saved. Squad is full</h3> $sizeMet.
+        #else
+        <h1 class="h2-reponsive text-info animated wobble infinite">Success!</h1>
+        <br>
+        <h2 class="h2-reponsive text-info animate fadeIn"><strong>Your Squad has been saved to $models.squad.getName() models.squad. </strong></h2>
+        #end
+        #end
+        <br>
+        <a href="/squads" class="btn btn-outline-white ">View Squad List  <i class="far fa-address-card animated rotateIn infinite"> </i></a>
+    </div>

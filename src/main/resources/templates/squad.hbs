@@ -1,0 +1,28 @@
+<div class="view" style="background-image: url('https://images8.alphacoders.com/815/815404.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+    <div class="jumbotron text-center">
+        <h1 class="h1-reponsive text-info" ><strong> $models.squad.getName() Squad Heroes </strong></i></h1>
+        <br>
+        #if ($models.squad.getHeroes().size()>0)
+        <div class="list-group">
+            #foreach ($hero in $models.squad.getHeroes())
+            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start stylish-color-dark text-white">
+                <div class="d-flex w-75 justify-content-between">
+                    <h3 class="list-group-item-heading text-info">$hero.getName()</h3>
+                    <span>$hero.getAge() years old</span>
+                </div>
+                <p class="list-group-item-text">Powers: $hero.getPower()
+                    <br> Weaknesses: $hero.getWeakness()</p>
+            </a>
+            #end
+        </div>
+        #else
+        <p>No hero added!</p>
+        #end
+        <br>
+        <a  href="/squads/$models.squad.getId()/heroes/new" class="btn btn-outline-white ">Add New Hero  <i class="fas fa-user-plus animate rotateIn infinite"></i></a>
+        <a href="/squads" class="btn btn-outline-white ">All Squads</a>
+    </div>
+
+
+
+
