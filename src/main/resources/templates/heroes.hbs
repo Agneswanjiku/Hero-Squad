@@ -1,20 +1,22 @@
 <div class="container">
     <div class="view" style="background-image: url('https://images8.alphacoders.com/815/815404.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
         <h1 class="h1-reponsive text-info" >Hero list!</h1>
-        #if ($heroes)
+        {{#if heroes}}
         <ul class="list-group" >
-            #foreach ($hero in $heroes)
+            {{#each heroes}}
             <li class="list-group-item" >
-                <p>$hero.getName()</p>
+                <p>{{hero.mName}}</p>
                 <ul class="list-group">
-                    <li class="list-group-item">$hero.getName()'s Age: $hero.getAge()</li>
-                    <li class="list-group-item">Powers: $hero.getPower()</li>
-                    <li class="list-group-item">Weaknesses: $hero.getWeakness()</li>
+                    <li class="list-group-item">hero: {{hero.mName}}  {{Age.mAge}}</li>
+                    <li class="list-group-item">powers: {{Powers.mPower}}</li>
+                    <li class="list-group-item">Weaknesses: {{hero.mWeakness}}</li>
                 </ul>
             </li>
-            #end
+            {{/each}}
         </ul>
-        #else
-        h4 class="h4-reponsive text-info animate fadeIn"><strong>No Hero Added !</strong></h4>
-        #end
+        {{else}}
+        <h4 class="h4-reponsive text-info animate fadeIn"><strong>No Hero Added !</strong></h4>
+        {{/if}}
     </div>
+</div>
+{{> layout.hbs}}

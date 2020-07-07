@@ -1,3 +1,4 @@
+import models.Hero;
 import models.squad;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
@@ -25,32 +26,45 @@ public class App {
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
             model.put("template", "templates/index.hbs");
-            return new ModelAndView(model, layout);
+            return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
 
 
-        get("/heroes", (request, response) -> {
+        post("/heroes", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
-            model.put("heroes", Hero.all());
+            int age = Integer.parseInt(request.queryParams("age"));
+            String name =request.queryParams("name");
+            String power =request.queryParams("power");
+            String weakness =request.queryParams("weakness");
+            Hero newHero = new Hero(name, age, power, weakness);
+//            model.put("heroes", heroes);
             model.put("template", "templates/heroes.hbs");
-            return new ModelAndView(model, layout);
+            return new ModelAndView(model, "templates/heroes.hbs");
         }, new HandlebarsTemplateEngine());
+
 
         get("/heroes/:id", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
             Hero hero = Hero.find(Integer.parseInt(request.params(":id")));
             model.put("hero", hero);
             model.put("template", "templates/hero.hbs");
-            return new ModelAndView(model, layout);
+            return new ModelAndView(model, "hero.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/hero-form",(request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            model.put("hero-form.hbs", "/hero-form.hbs");
+            return new ModelAndView(model, "hero-form.hbs");
         }, new HandlebarsTemplateEngine());
 
 
 
-        get("squads/new", (request, response) -> {
+
+        get("/squadsForm", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
-            model.put("template", "templates/squadForm.hbs");
-            return new ModelAndView(model, layout);
+            model.put("squadForm", "templates/squadForm.hbs");
+            return new ModelAndView(model, "squadForm.hbs");
         }, new HandlebarsTemplateEngine());
 
 
@@ -63,14 +77,14 @@ public class App {
             String cause = request.queryParams("cause");
             squad newSquad= new squad(name,size,cause);
             model.put("template", "templates/squadSuccess.hbs");
-            return new ModelAndView(model, layout);
+            return new ModelAndView(model, "squadSuccess.hbs");
         }, new HandlebarsTemplateEngine());
 
         get("/squads", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
             model.put("squads", squad.all());
             model.put("template", "templates/squads.hbs");
-            return new ModelAndView(model, layout);
+            return new ModelAndView(model, "squads.hbs");
         }, new HandlebarsTemplateEngine());
 
 
@@ -79,7 +93,7 @@ public class App {
             squad squad = models.squad.find(Integer.parseInt(request.params(":id")));
             model.put("squad", squad);
             model.put("template", "templates/squad.hbs");
-            return new ModelAndView(model, layout);
+            return new ModelAndView(model, "squad.hbs");
         }, new HandlebarsTemplateEngine());
 
         get("squads/:id/heroes/new", (request, response) -> {
@@ -87,7 +101,7 @@ public class App {
             squad squad = models.squad.find(Integer.parseInt(request.params(":id")));
             model.put("squad", squad);
             model.put("template", "templates/squadHeroesForm.hbs");
-            return new ModelAndView(model, layout);
+            return new ModelAndView(model, "squadHeroesForm.hbs");
         }, new HandlebarsTemplateEngine());
 
 
@@ -109,10 +123,6 @@ public class App {
                 model.put("heroExists", heroExists);
             }
 
-            else if (squad.getHeroes().size() >= squad.getSize()) {
-                String sizeMet = "Squad is full";
-                model.put("sizeMet", sizeMet);
-            }
 
             else{
                 squad.addHero(newHero);
@@ -120,7 +130,7 @@ public class App {
 
             model.put("squad", squad);
             model.put("template", "templates/squadHeroesSuccess.hbs");
-            return new ModelAndView(model, layout);
+            return new ModelAndView(model, "squadHeroesSuccess.hbs");
         }, new HandlebarsTemplateEngine());
     }
 }
