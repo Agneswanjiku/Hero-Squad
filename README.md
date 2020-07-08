@@ -3,6 +3,5 @@
    
 </P>
 
-![Screenshot from 2020-07-07 23-13-14](https://user-images.githubusercontent.com/63198747/86837632-d55dff00-c0a7-11ea-9acc-1d625d365299.png)
 
 
