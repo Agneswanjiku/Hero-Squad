@@ -3,7 +3,7 @@
         <h2 class="h2-reponsive text-info animated wobble"><strong>Add hero to {{hero.name}}<i class="fas fa-user-plus animate rotateIn infinite"></i></strong></h2>
         <br>
         <form action="/heroes" method="post">
-            <input id="squadId" name="squadId" type="hidden" value="$models.squad.getId()">
+            <input id="squadId" name="squadId" type="hidden" value="$models.Squad.getId()">
             <div class="form-group md-form">
                 <label class="active text-white" for="name">Name</label>
                 <input id="name" name="name" type="text" class="form-control text-white">

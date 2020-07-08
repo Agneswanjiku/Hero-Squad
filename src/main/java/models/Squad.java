@@ -4,24 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class squad<Hero> {
+public class Squad {
     private String mName;
     private int mSize;
-    private String mCause;
-    private static List<squad> instances = new ArrayList<squad>();
+    private static List<Squad> instances = new ArrayList<Squad>();
     private int mId;
     private List<Hero> mHeroes;
 
-    public squad(String name, int size, String cause) {
+    public Squad(String name, int size) {
         mName = name;
         mSize = size;
-        mCause = cause;
         instances.add(this);
         mId = instances.size();
         mHeroes = new ArrayList<Hero>();
     }
 
-    public String getName() {
+    public String getmName() {
         return mName;
     }
 
@@ -29,11 +27,8 @@ public class squad<Hero> {
         return mSize;
     }
 
-    public String getCause() {
-        return mCause;
-    }
 
-    public static List<squad> all() {
+    public static List<Squad> all() {
         return instances;
     }
 
@@ -45,7 +40,7 @@ public class squad<Hero> {
         return mId;
     }
 
-    public static squad find(int id) {
+    public static Squad find(int id) {
         return instances.get(id - 1);
     }
 
@@ -59,7 +54,7 @@ public class squad<Hero> {
 
     public boolean heroAlreadyExists(Hero newHero) {
         boolean exists = false;
-        for (squad squad : instances) {
+        for (Squad squad : instances) {
             for (Object hero : squad.getHeroes()) {
                 if (Objects.equals(hero.equals(hero), newHero.equals(hero))) {
                     exists = true;

@@ -4,18 +4,22 @@
         <h1 class="h1-reponsive text-info" >All Squads <i class="fas fa-id-card"></i></h1>
         <a href="/squad-form.hbs" class="btn btn-outline-white ">Add New Squad  <i class="fas fa-user-plus animate rotateIn infinite"></i></a>
         <br>
-
-        <div class="list-group text-white overflow-auto">
-            {{#each squad}}
-            <a href="/squads/$models.squad.getId()" class="list-group-item list-group-item-action flex-column align-items-start  stylish-color-dark text-white overflow-auto">
-                <div class="d-flex w-75 justify-content-between overflow-auto">
-                    <h4 class="list-group-item-heading text-info">{{squad.name }}<span class="badge"></span></h4>
-
-                </div>
-            </a>
-            {{/each}}
-        </div>
     </div>
 </div>
+
+        <div class="list-group text-white overflow-auto">
+            {{#if allSquads}}
+                <ul>
+                    {{#each allSquads}}
+                        <li>
+                            <h4 class="hero-name">{{ mName }}</h4>
+                            <small><a href="">View Squad</a> </small>
+                        </li>
+                    {{/each}}
+                </ul>
+            {{else}}
+                <span class="label label-warning">No Squad Added Yet!</span>
+            {{/if}}
+        </div>
 </section>
 {{> layout.hbs}}

@@ -1,16 +1,17 @@
 import models.Hero;
-import models.squad;
+import models.Squad;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static spark.Spark.*;
 public class App {
     public static void main(String[] args) {
         staticFileLocation("/public");
-        String layout = "templates/layout.hbs";
+
 
 
         ProcessBuilder process = new ProcessBuilder();
@@ -25,7 +26,6 @@ public class App {
 
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
-            model.put("template", "templates/index.hbs");
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -39,8 +39,7 @@ public class App {
             String weakness =request.queryParams("weakness");
             Hero newHero = new Hero(name, age, power, weakness);
 //            model.put("heroes", heroes);
-            model.put("template", "templates/heroes.hbs");
-            response.redirect("/success.hbs");
+            response.redirect("/success");
             return null;
         }, new HandlebarsTemplateEngine());
 
@@ -64,8 +63,7 @@ public class App {
 
         get("/squadsForm", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
-            model.put("squadForm", "templates/squadForm.hbs");
-            return new ModelAndView(model, "squadForm.hbs");
+            return new ModelAndView(model, "squad-form.hbs");
         }, new HandlebarsTemplateEngine());
 
 
@@ -75,23 +73,27 @@ public class App {
             Map<String, Object> model = new HashMap<String, Object>();
             String name = request.queryParams("name");
             int size = Integer.parseInt(request.queryParams("size"));
-            String cause = request.queryParams("cause");
-            squad newSquad= new squad(name,size,cause);
-            model.put("template", "templates/squadSuccess.hbs");
+            Squad newSquad= new Squad(name, size);
             return new ModelAndView(model, "squadSuccess.hbs");
         }, new HandlebarsTemplateEngine());
 
         get("/squads", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
-            model.put("squads", squad.all());
-            model.put("template", "templates/squads.hbs");
+            List<Squad> allSquads = Squad.all();
+            model.put("allSquads", allSquads);
             return new ModelAndView(model, "squads.hbs");
         }, new HandlebarsTemplateEngine());
+
+        get("/success", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "success.hbs");
+        }, new HandlebarsTemplateEngine());
+
 
 
         get("/squads/:id",(request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
-            squad squad = models.squad.find(Integer.parseInt(request.params(":id")));
+            Squad squad = Squad.find(Integer.parseInt(request.params(":id")));
             model.put("squad", squad);
             model.put("template", "templates/squad.hbs");
             return new ModelAndView(model, "squad.hbs");
@@ -99,7 +101,7 @@ public class App {
 
         post("squads/:id/heroes/new", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
-            squad squad = models.squad.find(Integer.parseInt(request.params(":id")));
+            Squad squad = Squad.find(Integer.parseInt(request.params(":id")));
             model.put("squad", squad);
             model.put("template", "templates/squadHeroesForm.hbs");
             return new ModelAndView(model, "squadHeroesForm.hbs");
@@ -109,7 +111,7 @@ public class App {
 
         post("/heroes", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
-            squad squad = models.squad.find(Integer.parseInt(request.queryParams("squadId")));
+            Squad squad = Squad.find(Integer.parseInt(request.queryParams("squadId")));
             String name = request.queryParams("name");
             int age = Integer.parseInt(request.queryParams("age"));
             String power = request.queryParams("power");
