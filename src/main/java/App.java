@@ -40,7 +40,8 @@ public class App {
             Hero newHero = new Hero(name, age, power, weakness);
 //            model.put("heroes", heroes);
             model.put("template", "templates/heroes.hbs");
-            return new ModelAndView(model, "templates/heroes.hbs");
+            response.redirect("/success.hbs");
+            return null;
         }, new HandlebarsTemplateEngine());
 
 
@@ -52,7 +53,7 @@ public class App {
             return new ModelAndView(model, "hero.hbs");
         }, new HandlebarsTemplateEngine());
 
-        get("/hero-form",(request, response) -> {
+        get("/heroes",(request, response) -> {
             Map<String, Object> model = new HashMap<>();
             model.put("hero-form.hbs", "/hero-form.hbs");
             return new ModelAndView(model, "hero-form.hbs");
@@ -96,7 +97,7 @@ public class App {
             return new ModelAndView(model, "squad.hbs");
         }, new HandlebarsTemplateEngine());
 
-        get("squads/:id/heroes/new", (request, response) -> {
+        post("squads/:id/heroes/new", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
             squad squad = models.squad.find(Integer.parseInt(request.params(":id")));
             model.put("squad", squad);
@@ -108,14 +109,14 @@ public class App {
 
         post("/heroes", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
-
             squad squad = models.squad.find(Integer.parseInt(request.queryParams("squadId")));
-
             String name = request.queryParams("name");
             int age = Integer.parseInt(request.queryParams("age"));
             String power = request.queryParams("power");
             String weakness = request.queryParams("weakness");
             Hero newHero = new Hero(name, age, power, weakness);
+
+
 
 
             if (squad.heroAlreadyExists(newHero)) {

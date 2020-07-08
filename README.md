@@ -1,17 +1,19 @@
-<h1>HEROSQUAD</h1>
-<P>This is a java app that enables a user create a hero and a squad and also the user can add a hero to a squad
-   
-</P>
-<<<<<<< HEAD
-Technology Used
-To come up with the program i used the java.
+<br>User Requirements<br>
+The applications allow users to do the following: 1.Add a new squad 2.Add a squad name , size and a cause 3.View a list of current squads 5.Add a hero. 6.View current heroes.
 
+<br>Project Setup<br>
+Make sure all requirements for running java applications are installed;JUnit, Intellij,SDK,JDK.
+Clone the project to your local machine from https://github.com/Christine-N-Mwaura/heroSquad.git.
+To view the site visit https://herosquad154.herokuapp.com/.
+Run gradle run to compile and java heroSquad to run the program.
+<br>Technologies Used<br>
+JDK
+Junit
+Java
+SDK
+spark
+Contact Details
+For further information contact me at shikonorman@gmail.com
 
-<br>LICENCE<br>
-
-MIT License Copyright (c) 2020 Agnes Wanjiku permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-=======
-![Screenshot from 2020-07-07 23-13-14](https://user-images.githubusercontent.com/63198747/86837632-d55dff00-c0a7-11ea-9acc-1d625d365299.png)
-
-
->>>>>>> dccaa43bb2c2789fdd71c3a6d743359c2897bfc0
+<br>License<br>
+This project is licensed under the MIT Open Source license Copyright (c) 2019. Christine Njeri.
