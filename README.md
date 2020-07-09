@@ -14,7 +14,7 @@ You can reach me via email @ shikonorman@gmail.com
 
 
 
-BDD
+Image
 ![Screenshot from 2020-07-08 08-16-51](https://user-images.githubusercontent.com/63198747/86999196-b0a67c00-c1ba-11ea-9a92-13a5fa9874b6.png)
 
 
