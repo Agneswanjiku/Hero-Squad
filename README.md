@@ -21,8 +21,26 @@ Image
 
 
 
-Technology Used
+<br>Technology Used<br>
 To come up with the program i used the java.
+
+<br>Built With<br>
+Java - The language used
+Intellij Idea - Intergated development
+Spark - Framework
+
+<br>Contributing<br>
+If you want to put out a pull request you first have to send us the sample code that you want to add to our repository for cross-checking before we allow the pull.
+
+<br>Versioning<br>
+We use Github for versioning. This is the first version of this application
+
+License
+This project is licensed under the MIT License - see the LICENSE file for details
+
+Acknowledgments
+Hat tip to Stackoverflow
+
 
 
 LICENCE
