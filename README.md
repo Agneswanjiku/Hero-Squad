@@ -22,6 +22,8 @@ Image
 
 <br>squad form image<br>
 ![Screenshot from 2020-07-11 18-09-16](https://user-images.githubusercontent.com/63198747/87227207-202a9000-c3a2-11ea-93af-9ddae8cdee35.png)
+<br> succcess image after squad added<br>
+![Screenshot from 2020-07-11 18-14-49](https://user-images.githubusercontent.com/63198747/87227254-7a2b5580-c3a2-11ea-8a98-f2e9fd400917.png)
 
 
 
