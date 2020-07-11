@@ -17,6 +17,11 @@ You can reach me via email @ shikonorman@gmail.com
 Image
 ![Screenshot from 2020-07-08 08-16-51](https://user-images.githubusercontent.com/63198747/86999196-b0a67c00-c1ba-11ea-9a92-13a5fa9874b6.png)
 
+<br>hero form image<br>
+![Screenshot from 2020-07-11 18-09-06](https://user-images.githubusercontent.com/63198747/87227170-c2964380-c3a1-11ea-9cb2-7f1f21f183e6.png)
+
+<br>squad form image<br>
+
 
 
 
