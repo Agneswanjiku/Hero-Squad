@@ -21,6 +21,8 @@ Image
 ![Screenshot from 2020-07-11 18-09-06](https://user-images.githubusercontent.com/63198747/87227170-c2964380-c3a1-11ea-9cb2-7f1f21f183e6.png)
 
 <br>squad form image<br>
+![Screenshot from 2020-07-11 18-09-16](https://user-images.githubusercontent.com/63198747/87227207-202a9000-c3a2-11ea-93af-9ddae8cdee35.png)
+
 
 
 
